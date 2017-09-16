@@ -1,0 +1,21 @@
+class Solution(object):
+    def constructArray(self, n, k):
+        """
+        :type n: int
+        :type k: int
+        :rtype: List[int]
+        """
+        ansList = [1]
+        tempK = k
+        while tempK:
+            if len(ansList) % 2 == 1:
+                ansList.append(ansList[-1]+tempK)
+            else:
+                ansList.append(ansList[-1]-tempK)
+            tempK -= 1
+        
+        ansList.extend(range(2+k, n+1))
+
+        print(ansList)
+            
+        return ansList
